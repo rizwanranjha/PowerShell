@@ -1,64 +1,84 @@
-Add Users to Microsoft 365 Distribution Group via PowerShell
+Exchange Online PowerShell Scripts
 
-This PowerShell script allows administrators to bulk add users to a Microsoft 365 (Exchange Online) distribution group using a CSV file. It connects securely to Exchange Online and processes each user email from the CSV, adding them to the specified distribution group.
-🔧 Features
+This folder contains PowerShell scripts for managing Microsoft 365 Exchange Online tasks. These scripts are designed to automate repetitive tasks such as managing distribution groups and updating mailbox aliases using structured CSV files.
 
-    ✅ Automatically connects to Exchange Online using Connect-ExchangeOnline.
+    ✅ Make sure you have the necessary admin permissions and the Exchange Online PowerShell module installed before running these scripts.
 
-    📥 Imports a CSV list of user emails.
+📁 Available Scripts
+1. Add Users to Distribution Group
 
-    👥 Adds each user to the specified distribution group.
+Bulk adds users to a specified distribution group using a CSV file.
 
-    ⚠️ Handles errors gracefully and logs meaningful messages.
+    Script: Add-DistributionGroupMembers.ps1
 
-    🖥️ Color-coded console output for clear status updates.
+    CSV File: EmployeeList.csv
 
-📁 Prerequisites
+    Required Column: Email
 
-    Microsoft 365 Exchange Online PowerShell module
+    Main Cmdlet Used: Add-DistributionGroupMember
 
-    Admin account with rights to manage distribution groups
+    📄 See detailed README
 
-    Internet connection to authenticate with Microsoft 365
+2. Email Alias List Update Script
 
-📄 CSV Format
+Adds alias email addresses to user mailboxes based on CSV input.
 
-Place your employee email addresses in a CSV file named EmployeeList.csv with the following format:
+    Script: Update-MailboxAlias.ps1
 
-EmployeeList.csv
+    CSV File: EmailAliasList.csv
 
-Email
-john.doe@example.com
-jane.smith@example.com
-michael.lee@example.com
+    Required Columns: Email, AliasEmail
 
-    ✅ Ensure there are no extra columns or headers. The column name must be Email.
+    Main Cmdlets Used: Get-Mailbox, Set-Mailbox
 
-🧑‍💻 Script Usage
+    Automatically checks if alias already exists before updating.
 
-    Edit the following variables in the script:
+    📄 See detailed README (optional if you separate them later)
 
-$groupEmail = "itsupport@rizwanranjha.com"
-$csvPath = "D:\Workspace\PowerShellScripts\EmployeeList.csv"
+✅ Prerequisites
 
-Run the script in PowerShell (with admin privileges):
+Before running any scripts:
 
-Connect-ExchangeOnline -UserPrincipalName "admin@rizwanranjha.com"
+    Install and import the Exchange Online PowerShell module:
 
-Then execute the script.
+Install-Module ExchangeOnlineManagement
+Import-Module ExchangeOnlineManagement
 
-🚨 Notes
+Connect using:
 
-    This script does not remove users — it only adds members.
+    Connect-ExchangeOnline -UserPrincipalName "<admin@domain.com>"
 
-    Ensure the emails are valid and the users exist in your tenant.
+🛠 How to Use
 
-    You may need to allow PowerShell execution using:
+    Clone or download this repo.
 
-    Set-ExecutionPolicy RemoteSigned
+    Prepare the required CSV input as described for each script.
 
-📬 License
+    Open PowerShell as Administrator.
+
+    Navigate to the script folder and run the script.
+
+    Follow on-screen prompts and logs for status updates.
+
+🔐 Security Note
+
+    Your scripts may contain email addresses or sensitive operations. Avoid sharing or committing actual credentials or production data.
+
+    Always test scripts in a development environment before deploying them live.
+
+📤 Coming Soon
+
+    Shared mailbox automation
+
+    Distribution list cleanup
+
+    Email forwarding setup
+
+    Out-of-office automation
+
+👨‍💻 Author
+
+Scripts maintained by Muhammad Rizwan Ahma
+📜 License
 
 MIT License
-
-Let me know if you'd like a version with automated Connect-ExchangeOnline login prompts or advanced logging to file.
