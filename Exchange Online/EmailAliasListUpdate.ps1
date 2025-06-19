@@ -1,5 +1,6 @@
 # Email Alias List Update Script
-# Added by Muhammad Rizwan Ahma
+# Added by Muhammad Rizwan Ahmad
+# https://www.rizwanranjha.com
 # Connect to Exchange Online
 Connect-ExchangeOnline -UserPrincipalName "mrizwan@rizwanranjha.com"
 

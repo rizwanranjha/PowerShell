@@ -1,3 +1,7 @@
+# Bulk Add Users to Distribution Group
+# Added by Muhammad Rizwan Ahmad
+# https://www.rizwanranjha.com
+# Connect to Exchange Online
 Connect-ExchangeOnline -UserPrincipalName "admin@rizwanranjha.com"
 
 $groupEmail = "itsupport@rizwanranjha.com"
