@@ -17,8 +17,6 @@ Bulk adds users to a specified distribution group using a CSV file.
 
     Main Cmdlet Used: Add-DistributionGroupMember
 
-    📄 See detailed README
-
 2. Email Alias List Update Script
 
 Adds alias email addresses to user mailboxes based on CSV input.
@@ -32,8 +30,6 @@ Adds alias email addresses to user mailboxes based on CSV input.
     Main Cmdlets Used: Get-Mailbox, Set-Mailbox
 
     Automatically checks if alias already exists before updating.
-
-    📄 See detailed README (optional if you separate them later)
 
 ✅ Prerequisites
 
